@@ -11,6 +11,7 @@ import { useStyles } from "../style";
 import { format } from "date-fns";
 import parseISO from "date-fns/parseISO";
 import { Typography } from "@material-ui/core";
+import { CopyToClipboardText } from "../../../components/CopyToClipboardText";
 
 export const ContactsTable = ({ data }) => {
   const classes = useStyles();
@@ -46,8 +47,12 @@ export const ContactsTable = ({ data }) => {
                 </Typography>
                 <Typography>{contact.dob.age} years</Typography>
               </TableCell>
-              <TableCell>{contact.email}</TableCell>
-              <TableCell>{contact.phone}</TableCell>
+              <TableCell>
+                <CopyToClipboardText text={contact.email} />
+              </TableCell>
+              <TableCell>
+                <CopyToClipboardText text={contact.phone} />
+              </TableCell>
               <TableCell>
                 <Typography>/{contact.location.country}/</Typography>
                 <Typography>
