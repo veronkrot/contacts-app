@@ -12,6 +12,7 @@ import { format } from "date-fns";
 import parseISO from "date-fns/parseISO";
 import { Typography } from "@material-ui/core";
 import { CopyToClipboardText } from "../../../components/CopyToClipboardText";
+import { NATIONALITIES_HUMAN_NAME } from "../../../constants/nationality";
 
 export const ContactsTable = ({ data }) => {
   const classes = useStyles();
@@ -61,7 +62,9 @@ export const ContactsTable = ({ data }) => {
                   {contact.location.postcode}
                 </Typography>
               </TableCell>
-              <TableCell align="right">{contact.nat}</TableCell>
+              <TableCell align="right">
+                {NATIONALITIES_HUMAN_NAME[contact.nat]}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
